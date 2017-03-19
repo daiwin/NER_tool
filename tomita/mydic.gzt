@@ -1,0 +1,73 @@
+encoding "utf8";               // указываем кодировку, в которой написан этот файл
+
+import "base.proto";           // подключаем описания protobuf-типов (TAuxDicArticle и прочих)
+import "articles_base.proto";  // Файлы base.proto и articles_base.proto встроены в компилятор.
+										// Их необходимо включать в начало любого gzt-словаря.
+import "facttypes.proto";
+
+TAuxDicArticle "месяц"
+{
+    key = "январь" | "февраль" | "март" | "апрель" | "май" | "июнь" |
+          "июль" | "август" |   "сентябрь" | "октябрь" | "ноябрь" | "декабрь"
+}
+
+TAuxDicArticle "день_недели"
+{
+    key = "понедельник" | "вторник" | "среда" | "четверг" | "пятница" | "суббота" | "воскресенье"
+}
+
+TAuxDicArticle "дата"
+{
+    key = { "tomita:rules/date.cxx" type=CUSTOM }
+}
+
+
+TAuxDicArticle "адрес"
+{
+    key = {"tomita:rules/address.cxx" type=CUSTOM}
+}
+
+
+TAuxDicArticle "фио"
+{
+    key = {"tomita:rules/fio.cxx" type=CUSTOM}
+}
+
+TAuxDicArticle "гео"
+{
+    key = {"tomita:rules/geo.cxx" type=CUSTOM}
+}
+
+TAuxDicArticle "гео_дискрипторы"
+{
+    key = { "dictionaries/geo_discs.txt" type=FILE }
+}
+
+TAuxDicArticle "орг"
+{
+    key = {"tomita:rules/org.cxx" type=CUSTOM}
+}
+
+
+TAuxDicArticle "орг_дискрипторы"
+{
+    key = { "dictionaries/org_discs.txt" type=FILE }
+}
+
+
+TAuxDicArticle "и_разделитель"
+{
+    key = "и"
+}
+
+TAuxDicArticle "важные"
+{
+    key = { "dictionaries/important_terms.txt" type=FILE }
+}
+
+TAuxDicArticle "важное"
+{
+    key = {"tomita:rules/important.cxx" type=CUSTOM}
+}
+
+
