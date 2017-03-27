@@ -25,7 +25,7 @@ def convert_to_utf8(filename):
         f.close()
      
      
-def run_pre(cb):
+def run_pre():
      print("ok run preprocessing")
      files = listdir("input")
      i=0
@@ -36,5 +36,3 @@ def run_pre(cb):
      print("preprocessing done, complete ", i, " files")
      
      toolRunner.run_tools()
-     
-     cb()
