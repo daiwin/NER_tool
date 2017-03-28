@@ -26,7 +26,7 @@ P4 -> Word<gram="famn", h-reg1,~h-reg2, ~l-quoted>
 
 			
 			
-Person ->P1 interp (Person.FIO) | P2 interp (Person.FIO) | P3 interp (Person.FIO) | P4 interp (Person.FIO);
+Person ->P1 interp (Person.FIO::not_norm) | P2 interp (Person.FIO::not_norm) | P3 interp (Person.FIO::not_norm) | P4 interp (Person.FIO::not_norm);
 
 
 

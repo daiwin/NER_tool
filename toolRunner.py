@@ -44,7 +44,7 @@ def parse_rco_results():
                         etype='Date'
                     epos=entity.attrib.get('offset')
                     elength=entity.attrib.get('length')
-                    entity_data=entity[2].text
+                    entity_data=   entity[0].text.replace("\"", "").replace("«", "").replace("»", "")
                     f.write(  etype +':'+  epos  +':'+  elength   +':'+   entity_data+'\r')
          f.close()
 

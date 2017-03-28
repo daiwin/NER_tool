@@ -7,3 +7,4 @@ tomita/utilities/
 tomita/tests/
 tomita/*.bin
 tomita/tomitaparser.exe
+tomita/rules/*.bin
