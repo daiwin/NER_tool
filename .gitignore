@@ -8,3 +8,4 @@ tomita/tests/
 tomita/*.bin
 tomita/tomitaparser.exe
 tomita/rules/*.bin
+tools/tomita/tomitaparser.exe
