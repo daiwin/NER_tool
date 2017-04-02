@@ -1,0 +1,19 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+
+<document url="news_2.txt">
+	<Geo val="ЧЕЛЯБИНСК"/>
+	<Date val="9 ДЕКАБРЯ"/>
+	<Date val="29 НОЯБРЯ"/>
+	<Geo val="ЕКАТЕРИНБУРГ"/>
+	<Geo val="УРАЛ"/>
+	<Geo val="ОРДЖОНИКИДЗЕВСКИЙ РАЙОН"/>
+	<Geo val="ЕКАТЕРИНБУРГ"/>
+	<Person val="ИГОРЬ ЮДИН"/>
+	<Org val="ГУВД"/>
+	<Geo val="ЧЕЛЯБИНСКАЯ ОБЛАСТЬ"/>
+	<Geo val="ЧЕЛЯБИНСК"/>
+	<Geo val="ЕКАТЕРИНБУРГ"/>
+	<Geo val="ЕКАТЕРИНБУРГ"/>
+	<Geo val="ЧЕЛЯБИНСК"/>
+	<Geo val="ЕКАТЕРИНБУРГ"/>
+</document>

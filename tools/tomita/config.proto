@@ -7,7 +7,7 @@ TTextMinerConfig {
   PrettyOutput = "output/PrettyOutput.html";      // путь к файлу с отладочным выводом в удобном для чтения виде
 
   Input = {
-    Dir = "../workdir/input_utf8/";        // путь к входной директории
+    Dir = "../../workdir/input_utf8/";        // путь к входной директории
   }
 
   Articles = [

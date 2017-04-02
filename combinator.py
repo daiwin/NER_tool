@@ -15,7 +15,7 @@ def run_comb():
      for file in files_overlap:
           if file[-4:] == ".txt":
                try:
-                    print(file)
+                    #print(file)
                     
                     tomita = filter(None,open("workdir/tools_results/tomita/"+file, "r").read().split("\n"))
                     rco = filter(None,open("workdir/tools_results/rco/"+file, "r").read().split("\n"))
@@ -26,24 +26,19 @@ def run_comb():
                     tomita_only = list(t - r)
                     rco_only = list(r - t)
                     
-                    
-                    
-                    
-                    print(tomita_only)
+                    #print(tomita_only)
                     #print(ne_overlap)
+                    data = ne_overlap
                     
-                    
-                    
-                    
-                    #data = f
                except Exception:
                     print("Ошибка открытия файла для кобинирования")
-               #f = open("workdir/combined_results/"+file, "w")
-               #try:
-                    #f.write(data)
-               #except Exception:
+               f = open("workdir/combined_results/"+file, "w")
+               try:
+                    for NE in data:
+                         f.write("%s\n" % NE)
+               except Exception:
                     print ("error")
-               #finally:
-                    #f.close()
+               finally:
+                    f.close()
      
      postprocessing.run_post()

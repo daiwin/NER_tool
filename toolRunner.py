@@ -12,7 +12,7 @@ import combinator
 
 def parse_tomita_results():
      dictionary = {}
-     tree = ET.parse('tomita/output/facts.xml')
+     tree = ET.parse('tools/tomita/output/facts.xml')
      root = tree.getroot()
      for some in root:
          f = open("workdir/tools_results/tomita/"+some.attrib.get('url'), 'w')
@@ -28,7 +28,7 @@ def parse_tomita_results():
          f.close()
 
 def parse_rco_results():
-     tree = ET.parse('rco/output/result.xml')
+     tree = ET.parse('tools/rco/output/result.xml')
      root = tree.getroot()
      for some in root:
          f = open("workdir/tools_results/rco/"+some.attrib.get('id'), 'w')
@@ -58,17 +58,17 @@ def run_tomita():
      if os.name == 'nt':
           startupinfo = subprocess.STARTUPINFO()
           startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-     executable = r'tomita\tomitaparser.exe'
+     executable = r'tools\tomita\tomitaparser.exe'
      config = r'config.proto'
-     p = subprocess.Popen([executable, config], cwd=r"tomita", shell=False, startupinfo=startupinfo)
+     p = subprocess.Popen([executable, config], cwd=r"tools\tomita", shell=False, startupinfo=startupinfo)
      p.wait()
      parse_tomita_results()
 
 def run_tools():
      print("ok run tools")
 
-     t_tomita = threading.Thread(target=run_rco)
-     t_rco = threading.Thread(target=run_tomita)
+     t_tomita = threading.Thread(target=run_tomita)
+     t_rco = threading.Thread(target=run_rco)
      t_tomita.start()
      t_rco.start()
      t_tomita.join()

@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+
+<document url="news_3.txt">
+	<Geo val="США"/>
+	<Person val="ДОНАЛЬД ТРАМП"/>
+	<Org val="КОМПАНИЯ EXXONMOBIL"/>
+	<Person val="РЕКС ТИЛЛЕРСОН"/>
+	<Org val="ТЕЛЕКОМПАНИЯ NBC"/>
+	<Geo val="НЬЮ-ЙОРК"/>
+	<Person val="РУДОЛЬФ ДЖУЛИАНИ"/>
+	<Geo val="США"/>
+	<Geo val="США"/>
+	<Person val="МИТТ РОМНИ"/>
+	<Geo val="США"/>
+	<Org val="ООН"/>
+	<Person val="ДЖОН БОЛТОН"/>
+	<Person val="БОБ КОРКЕР"/>
+	<Geo val="КНР"/>
+	<Person val="ДЖОН ХАНТСМАНА"/>
+	<Person val="ДЖО МАНЧИН"/>
+	<Person val="ДЭВИД ПЕТРЕУС"/>
+	<Person val="ДЕЙН РОРАБЕЙКЕР"/>
+	<Person val="ДЖЕЙМС СТАВРИДИС"/>
+</document>

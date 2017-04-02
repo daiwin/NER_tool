@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+
+<document url="news_1.txt">
+	<Date val="10 ДЕКАБРЯ"/>
+	<Geo val="ЧЕБАРКУЛЬ"/>
+	<Street val="УЛИЦА ЛЕНИНА 35"/>
+	<Geo val="ЧЕЛЯБИНСКАЯ ОБЛАСТЬ"/>
+	<Org val="ГУ МЧС"/>
+</document>

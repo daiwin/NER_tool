@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<document url="news_4.txt">
+  <Person val="СЕРГЕЙ ФИЛИЧКИН" />
+  <Org val="ЗАО ГРАНАДА ПРЕСС" />
+  <Org val="ТЕЛЕКАНАЛ ПЕРВЫЙ ОБЛАСТНОЙ" />
+  <Org val="РЕН ТВ" />
+  <Geo val="ЧЕЛЯБИНСК" />
+  <Geo val="РОССИЯ" />
+  <Org val="ТЕЛЕКАНАЛ ОТВ" />
+  <Geo val="ЧЕЛЯБИНСКАЯ ОБЛАСТЬ" />
+  <Date val="12 ДЕКАБРЯ" />
+</document>
