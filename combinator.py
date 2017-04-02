@@ -28,7 +28,7 @@ def run_comb():
                     
                     #print(tomita_only)
                     #print(ne_overlap)
-                    data = ne_overlap
+                    data = ne_overlap  + tomita_only
                     
                except Exception:
                     print("Ошибка открытия файла для кобинирования")

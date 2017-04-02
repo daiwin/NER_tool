@@ -1,7 +1,7 @@
 __pycache__/
 apache-opennlp-1.7.2/
 workdir/
-output/
+output/*.txt
 input/
 tomita/utilities/
 tomita/tests/
@@ -9,3 +9,6 @@ tomita/*.bin
 tomita/tomitaparser.exe
 tomita/rules/*.bin
 tools/tomita/tomitaparser.exe
+output/Evaluation_tool/testdata/
+tools/tomita/output/
+tools/rco/output/
