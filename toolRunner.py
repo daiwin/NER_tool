@@ -6,8 +6,9 @@ import xml.etree.ElementTree as ET
 import re
 import threading
 import combinator
-
-
+import sys
+sys.path.insert(0, 'tools/texterra')
+import texterra
 
 
 def parse_tomita_results():
@@ -52,6 +53,10 @@ def run_rco():
      print("   -RCO started")
      parse_rco_results()
 
+def run_texterra():
+     texterra.run()
+
+
 def run_tomita():
      print("   -Tomita started")
      startupinfo = None
@@ -69,9 +74,12 @@ def run_tools():
 
      t_tomita = threading.Thread(target=run_tomita)
      t_rco = threading.Thread(target=run_rco)
+     t_texterra = threading.Thread(target=run_texterra)
      t_tomita.start()
      t_rco.start()
+     #t_texterra.start()
      t_tomita.join()
      t_rco.join()
+     #t_texterra.join()
      
      combinator.run_comb()

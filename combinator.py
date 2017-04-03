@@ -19,16 +19,20 @@ def run_comb():
                     
                     tomita = filter(None,open("workdir/tools_results/tomita/"+file, "r").read().split("\n"))
                     rco = filter(None,open("workdir/tools_results/rco/"+file, "r").read().split("\n"))
+                    texterra = filter(None,open("workdir/tools_results/rco/"+file, "r").read().split("\n"))
+                    
+                    
                     t=set(tomita)
                     r=set(rco)
+                    tt=set(texterra)
                     
-                    ne_overlap = list(t & r)
-                    tomita_only = list(t - r)
-                    rco_only = list(r - t)
-                    
+                    ne_overlap = list(t & r & tt)
+                    tomita_only = list((t - r) | (t - tt))
+                    rco_only = list((r - t) | (r - tt))
+                    texterra_only= list((tt - t)|(tt-r))
                     #print(tomita_only)
                     #print(ne_overlap)
-                    data = ne_overlap  + tomita_only
+                    data = ne_overlap + texterra_only + tomita_only
                     
                except Exception:
                     print("Ошибка открытия файла для кобинирования")
