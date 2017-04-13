@@ -1,29 +1,27 @@
 # -*- coding: utf-8 -*-
 from os import listdir
-from collections import Counter
 
 def run_post():
      print("ok run postprocessing")
       #открываем файлы и группируем
       
-     files = listdir("workdir/combined_results")
+     fileNames = listdir("workdir/combined_results")
      
-     for file in files:
-          if file[-4:] == ".txt":
-               f = open("workdir/combined_results/"+file, "r")
-               mass=[]
-               for line in f.readlines():
+     for fileName in fileNames:
+          if fileName[-4:] == ".txt":
+               file = open("workdir/combined_results/"+fileName, "r")
+               namedEntities=[]
+               for line in file.readlines():
                     splited= line.split(':')
-                    mass.append(splited[0]+":"+splited[3])
-               mass = [line.rstrip() for line in mass]
+                    namedEntities.append(splited[0]+":"+splited[3])
+               namedEntities = [line.rstrip() for line in namedEntities]
+               file.close()
                
-               
-               f = open("output/"+file, "w")
+               file = open("output/"+fileName, "w")
                try:
-                    for NE in mass:
-                         f.write("%s\n" % NE)
+                    for namedEnitity in namedEntities:
+                         file.write("%s\n" % namedEnitity)
                except Exception:
                     print ("error")
                finally:
-                    f.close()
-                         
+                    file.close()

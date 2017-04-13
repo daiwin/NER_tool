@@ -16,7 +16,7 @@ def parse_tomita_results():
      tree = ET.parse('tools/tomita/output/facts.xml')
      root = tree.getroot()
      for some in root:
-         f = open("workdir/tools_results/tomita/"+some.attrib.get('url'), 'w')
+         file = open("workdir/tools_results/tomita/"+some.attrib.get('url'), 'w')
          dictionary[some.attrib.get('url')] = []
          for child in some[0]:
              b =[]
@@ -25,14 +25,14 @@ def parse_tomita_results():
              for child1 in child:
                  b.append(   re.sub(r'\s+', ' ',child1.attrib.get('val')  ) )
              dictionary[some.attrib.get('url')].append([child.tag, position, length, " ".join(b)])
-             f.write(  child.tag +':'+  position  +':'+  length   +':'+   " ".join(b)     + '\r')
-         f.close()
+             file.write(  child.tag +':'+  position  +':'+  length   +':'+   " ".join(b)     + '\r')
+         file.close()
 
 def parse_rco_results():
      tree = ET.parse('tools/rco/output/result.xml')
      root = tree.getroot()
      for some in root:
-         f = open("workdir/tools_results/rco/"+some.attrib.get('id'), 'w')
+         file = open("workdir/tools_results/rco/"+some.attrib.get('id'), 'w')
          for entity in some.iter('entity'):
               if(entity.attrib.get('type')=='Geoplace:Name' or entity.attrib.get('type')=='Organization:Name' or entity.attrib.get('type')=='Person:Name' or entity.attrib.get('type')=='Time:Date'):
                     if entity.attrib.get('type')=='Geoplace:Name':
@@ -46,8 +46,8 @@ def parse_rco_results():
                     epos=entity.attrib.get('offset')
                     elength=entity.attrib.get('length')
                     entity_data=   entity[0].text.replace("\"", "").replace("«", "").replace("»", "")
-                    f.write(  etype +':'+  epos  +':'+  elength   +':'+   entity_data+'\r')
-         f.close()
+                    file.write(  etype +':'+  epos  +':'+  elength   +':'+   entity_data+'\r')
+         file.close()
 
 def run_rco():
      print("   -RCO started")
@@ -65,21 +65,21 @@ def run_tomita():
           startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
      executable = r'tools\tomita\tomitaparser.exe'
      config = r'config.proto'
-     p = subprocess.Popen([executable, config], cwd=r"tools\tomita", shell=False, startupinfo=startupinfo)
-     p.wait()
+     process = subprocess.Popen([executable, config], cwd=r"tools\tomita", shell=False, startupinfo=startupinfo)
+     process.wait()
      parse_tomita_results()
 
 def run_tools():
      print("ok run tools")
 
-     t_tomita = threading.Thread(target=run_tomita)
-     t_rco = threading.Thread(target=run_rco)
-     t_texterra = threading.Thread(target=run_texterra)
-     t_tomita.start()
-     t_rco.start()
-     #t_texterra.start()
-     t_tomita.join()
-     t_rco.join()
-     #t_texterra.join()
+     tomitaThread = threading.Thread(target=run_tomita)
+     rcoThread = threading.Thread(target=run_rco)
+     texterraThread = threading.Thread(target=run_texterra)
+     #tomitaThread.start()
+     #rcoThread.start()
+     #texterraThread.start()
+     #tomitaThread.join()
+     #rcoThread.join()
+     #texterraThread.join()
      
-     combinator.run_comb()
+     combinator.run_combinator()
