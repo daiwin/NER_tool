@@ -2,18 +2,12 @@
 
 from os import listdir
 import codecs
-import os
+
 
 
 
 
 class preprocessing:
-     def delete_files_from_tree(self,path):
-        files = os.listdir(path)
-        for f in files:
-             p = os.path.join(path, f)
-             os.remove(p)
-
      def convert_to_utf8(self,filename):
          try:
              f = open("input\\"+filename, "rb").read()
@@ -36,10 +30,7 @@ class preprocessing:
           
      def run_pre(self):
           print("ok run preprocessing")
-          
-          self.delete_files_from_tree("workdir\input_utf8")
-          
-          
+
           files = listdir("input")
           i=0
           for file in files:
