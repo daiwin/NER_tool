@@ -51,7 +51,7 @@ def parse_rco_results():
 
 def run_rco():
      print("   -RCO started")
-     parse_rco_results()
+     #parse_rco_results()
 
 def run_texterra():
      texterra.run()
@@ -73,13 +73,13 @@ def run_tools():
      print("ok run tools")
 
      tomitaThread = threading.Thread(target=run_tomita)
-     rcoThread = threading.Thread(target=run_rco)
+     #rcoThread = threading.Thread(target=run_rco)
      texterraThread = threading.Thread(target=run_texterra)
-     #tomitaThread.start()
+     tomitaThread.start()
      #rcoThread.start()
-     #texterraThread.start()
-     #tomitaThread.join()
+     texterraThread.start()
+     tomitaThread.join()
      #rcoThread.join()
-     #texterraThread.join()
+     texterraThread.join()
      
      combinator.run_combinator()

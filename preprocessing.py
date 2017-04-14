@@ -3,6 +3,15 @@
 from os import listdir
 import toolRunner
 import codecs
+import os
+
+def delete_files_from_tree(path):
+   files = os.listdir(path)
+   for f in files:
+        p = os.path.join(path, f)
+        print(p)
+        os.remove(p)
+
 
 
 def convert_to_utf8(filename):
@@ -27,6 +36,10 @@ def convert_to_utf8(filename):
      
 def run_pre():
      print("ok run preprocessing")
+     
+     delete_files_from_tree("workdir\input_utf8")
+     
+     
      files = listdir("input")
      i=0
      for file in files:

@@ -15,25 +15,25 @@ def run_combinator():
      print("ok run combinator")
      
      files1 = listdir("workdir/tools_results/tomita")
-     files2 = listdir("workdir/tools_results/rco")
+     #files2 = listdir("workdir/tools_results/rco")
      files3= listdir("workdir/tools_results/texterra")
      
-     fileNamesOverlap = list(set(files1) & set(files2)& set(files3))
+     fileNamesOverlap = list(set(files1) & set(files3))
      
      for fileName in fileNamesOverlap:
           if fileName[-4:] == ".txt":
                try:
                     #print(fileName)
                     tomita = filter(None,open("workdir/tools_results/tomita/"+fileName, "r").read().split("\n"))
-                    rco = filter(None,open("workdir/tools_results/rco/"+fileName, "r").read().split("\n"))
+                    #rco = filter(None,open("workdir/tools_results/rco/"+fileName, "r").read().split("\n"))
                     texterra = filter(None,open("workdir/tools_results/texterra/"+fileName, "r").read().split("\n"))
                     
                     t=set(tomita)
-                    r=set(rco)
+                    #r=set(rco)
                     tt=set(texterra)
                     
 #                    ne_overlap = list(t & r & tt)
-                    overlap = list((t&r)|(r&tt)|(tt&t))
+                    overlap = list(tt&t)
                     print(overlap)
 #                    tomita_only = list((t - r) | (t - tt))
 #                    rco_only = list((r - t) | (r - tt))
