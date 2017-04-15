@@ -30,15 +30,15 @@ class Pokemon(Resource):
 		NE_system.run() 
 		mass=[]
 		try:
-			mass = filter(None,open("output\\"+self.filename+".txt", "r").read().split("\n"))
+			mass = filter(None,open("output\\"+self.filename+".txt", "r").read().split("\n"))		
 		except:
 			pokemon.append({'tag':'','entity':''})
-			
-		finally:
+		finally:	
 			for a in mass:
 				NE = a.split(':')
 				pokemon.append({'tag':NE[0],'entity':NE[1]})
-				
+			if (len(pokemon)==0):
+				pokemon.append({'tag':'','entity':''})			
 		return pokemon
 
 app = Flask(__name__)
