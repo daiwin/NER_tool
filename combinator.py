@@ -24,14 +24,13 @@ class combinator:
                     try:
                          #print(fileName)
                          tomita = filter(None,open("workdir/tools_results/tomita/"+fileName, "r").read().split("\n"))
-                         #rco = filter(None,open("workdir/tools_results/rco/"+fileName, "r").read().split("\n"))
+                         rco = filter(None,open("workdir/tools_results/rco/"+fileName, "r").read().split("\n"))
                          texterra = filter(None,open("workdir/tools_results/texterra/"+fileName, "r").read().split("\n"))
                          
                          t=set(tomita)
-                         #r=set(rco)
+                         r=set(rco)
                          tt=set(texterra)
-     #                    ne_overlap = list(t & r & tt)
-                         overlap = list(tt&t)
+                         overlap = list((t&r)|(r&tt)|(tt&t))
      #                    tomita_only = list((t - r) | (t - tt))
      #                    rco_only = list((r - t) | (r - tt))
      #                    texterra_only= list((tt - t)|(tt-r))

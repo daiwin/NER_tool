@@ -11,14 +11,14 @@ GEO ->  Sobst_fw interp (Geo.Name::not_norm);
 			
 GEO ->  Word<h-reg1,~h-reg2, gnc-agr[1], gram='A'>  interp (+Geo.Name::not_norm)  Sobst_fw< gnc-agr[1]> interp (+Geo.Name::not_norm);
 
-GEO -> Discs<l-reg, gnc-agr[1]> interp (+Geo.Name::not_norm) 
+GEO -> Discs<l-reg, gnc-agr[1]>
 			Word<h-reg1, gnc-agr[1]>+ interp (+Geo.Name::not_norm);
 		
-GEO -> Discs interp (+Geo.Name::not_norm) 
+GEO -> Discs
 			Word<h-reg1> interp (+Geo.Name::not_norm);
 
 
 		
 GEO -> Word<h-reg1,~h-reg2, gnc-agr[1]>+ interp (Geo.Name::not_norm) 
-			Discs<gnc-agr[1]> interp (+Geo.Name::not_norm) 
+			Discs<gnc-agr[1]>
 			Sobst_fw<gnc-agr[1]>* interp (+Geo.Name::not_norm);

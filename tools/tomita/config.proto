@@ -11,20 +11,16 @@ TTextMinerConfig {
 
   Articles = [
     { Name = "дата" },
-    { Name = "адрес" },
 	{ Name = "фио" },	// название статьи в корневом словаре, которая содержит запускаемую грамматику
 	{ Name = "гео" },
-	{ Name = "орг" },
-	{ Name = "важное"}
+	{ Name = "орг" }
   ]
 
   Facts = [
     { Name = "Date" },
-    { Name = "Street" },
 	{ Name = "Person" },
 	{ Name = "Geo" },
-	{ Name = "Org" },
-	{ Name = "Imp" }
+	{ Name = "Org" }
   ]
 
   Output = {

@@ -51,8 +51,8 @@ class toolrunner:
      
      def run_rco(self):
           print("   -RCO started")
-          #parse_rco_results()
-     
+          self.parse_rco_results()
+          
      def run_texterra(self):
           texterra.run()
      
@@ -73,11 +73,11 @@ class toolrunner:
           print("ok run tools")
      
           tomitaThread = threading.Thread(target=self.run_tomita)
-          #rcoThread = threading.Thread(target=run_rco)
+          rcoThread = threading.Thread(target=self.run_rco)
           texterraThread = threading.Thread(target=self.run_texterra)
           tomitaThread.start()
-          #rcoThread.start()
+          rcoThread.start()
           texterraThread.start()
           tomitaThread.join()
-          #rcoThread.join()
+          rcoThread.join()
           texterraThread.join()

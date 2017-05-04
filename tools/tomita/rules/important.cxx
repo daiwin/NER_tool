@@ -1,6 +1,6 @@
 #encoding "utf-8"
 
-Discs -> Word<kwtype="важные">;
+//Discs -> Word<kwtype="важные">;
 			
 			
-Imp -> Discs interp (Imp.Name);			
+//Imp -> Discs interp (Imp.Name);			
