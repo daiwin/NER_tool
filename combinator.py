@@ -22,10 +22,12 @@ class combinator:
           for fileName in fileNamesOverlap:
                if fileName[-4:] == ".txt":
                     try:
-                         #print(fileName)
+                         print(fileName)
                          tomita = filter(None,open("workdir/tools_results/tomita/"+fileName, "r").read().split("\n"))
                          rco = filter(None,open("workdir/tools_results/rco/"+fileName, "r").read().split("\n"))
                          texterra = filter(None,open("workdir/tools_results/texterra/"+fileName, "r").read().split("\n"))
+                         
+                         
                          
                          t=set(tomita)
                          r=set(rco)

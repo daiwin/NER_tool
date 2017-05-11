@@ -8,6 +8,10 @@ fmeasure_vals=[]
 p_vals=[]
 r_vals=[]
 
+K_susnostei_v_krpuse_vals = []
+K_vsex_vid_susnostey_vals = []
+K_vero_videlen_vlas = []
+
 def calculate_file_fmeasure(file):
      NE_test = list(filter(None,codecs.open("testdata/"+file, "r", "utf-8").read().split("\n")))
      NE = list(filter(None,open("../"+file, "r").read().split("\n")))
@@ -25,8 +29,14 @@ def calculate_file_fmeasure(file):
      #print(file)
 
      #print('Колличество сущностей в файле ' + str(K_susnostei_v_krpuse))
+     K_susnostei_v_krpuse_vals.append(K_susnostei_v_krpuse)
      #print('Всего выделенно сущностей ' + str(K_vsex_vid_susnostey))
-     #print('Колличество верно выделенных ' + str(K_vero_videlen)) 
+     K_vsex_vid_susnostey_vals.append(K_vsex_vid_susnostey)
+     #print('Колличество верно выделенных ' + str(K_vero_videlen))
+     K_vero_videlen_vlas.append(K_vero_videlen)
+
+
+
 
      Precision = K_vero_videlen / K_vsex_vid_susnostey # точность
      p_vals.append(Precision)
@@ -52,6 +62,9 @@ for file in files:
      if file[-4:] == ".txt":
           calculate_file_fmeasure(file)
 
+print(sum(K_susnostei_v_krpuse_vals) / len(K_susnostei_v_krpuse_vals))
+print(sum(K_vsex_vid_susnostey_vals) / len(K_vsex_vid_susnostey_vals))
+print(sum(K_vero_videlen_vlas) / len(K_vero_videlen_vlas))
 
 print(sum(p_vals) / len(p_vals)*100)
 print(sum(r_vals) / len(r_vals)*100)
