@@ -13,29 +13,49 @@ class combinator:
      def run_combinator(self):
           print("ok run combinator")
           
-          files1 = listdir("workdir/tools_results/tomita")
-          #files2 = listdir("workdir/tools_results/rco")
-          files3= listdir("workdir/tools_results/texterra")
+          tomita_status = False
+          texterra_status = False
           
-          fileNamesOverlap = list(set(files1) & set(files3))
+
+          files1 = listdir("workdir/tools_results/tomita")
+          if(len(files1)>0):
+               tomita_status = True
+          
+          files3= listdir("workdir/tools_results/texterra")
+          if(len(files3)>0):
+               texterra_status = True
+          
+          if(texterra_status & tomita_status):
+               fileNamesOverlap = list(set(files1) & set(files3))
+          elif(tomita_status):
+               fileNamesOverlap = list(set(files1))
+          elif(texterra_status):
+               fileNamesOverlap = list(set(files3))
+               
+          
           
           for fileName in fileNamesOverlap:
                if fileName[-4:] == ".txt":
                     try:
                          print(fileName)
-                         tomita = filter(None,open("workdir/tools_results/tomita/"+fileName, "r").read().split("\n"))
-                         rco = filter(None,open("workdir/tools_results/rco/"+fileName, "r").read().split("\n"))
-                         texterra = filter(None,open("workdir/tools_results/texterra/"+fileName, "r").read().split("\n"))
                          
                          
-                         
-                         t=set(tomita)
-                         r=set(rco)
-                         tt=set(texterra)
-                         overlap = list((t&r)|(r&tt)|(tt&t))
-     #                    tomita_only = list((t - r) | (t - tt))
-     #                    rco_only = list((r - t) | (r - tt))
-     #                    texterra_only= list((tt - t)|(tt-r))
+                         if(texterra_status & tomita_status):
+                              tomita = filter(None,open("workdir/tools_results/tomita/"+fileName, "r").read().split("\n"))
+                              texterra = filter(None,open("workdir/tools_results/texterra/"+fileName, "r").read().split("\n"))
+                              t=set(tomita)
+                              tt=set(texterra)
+                              overlap = (t&tt)
+                              
+                         elif(tomita_status):
+                              tomita = filter(None,open("workdir/tools_results/tomita/"+fileName, "r").read().split("\n"))
+                              t=set(tomita)
+                              overlap = t
+                         elif(texterra_status):
+                              texterra = filter(None,open("workdir/tools_results/texterra/"+fileName, "r").read().split("\n"))
+                              tt=set(texterra)
+                              overlap = tt
+
                          data = overlap
                          
                     except Exception:

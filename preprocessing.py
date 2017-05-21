@@ -1,11 +1,6 @@
 # -*- coding: utf-8 -*-
-
 from os import listdir
 import codecs
-
-
-
-
 
 class preprocessing:
      def convert_to_utf8(self,filename):

@@ -4,11 +4,11 @@ import hashlib
 import main
 
 
-class Pokemon(Resource):
+class REST_server(Resource):
 
 	filename=""
 	
-	def foooooooo(self):
+	def NER(self):
 		parser = reqparse.RequestParser()
 		parser.add_argument('text', type=str, required=True, location='json')
 		args = parser.parse_args(strict=True)
@@ -19,31 +19,30 @@ class Pokemon(Resource):
 			file.write(args['text'])
 		except:
 			print("Error")
-			self.pokemon
 		finally:
 			file.close
 
 	def post(self):
-		pokemon=[]
+		entities=[]
 		NE_system = main.system()    
-		self.foooooooo()
+		self.NER()
 		NE_system.run() 
-		mass=[]
+		output_data=[]
 		try:
-			mass = filter(None,open("output\\"+self.filename+".txt", "r").read().split("\n"))		
+			output_data = filter(None,open("output\\"+self.filename+".txt", "r").read().split("\n"))		
 		except:
-			pokemon.append({'tag':'','entity':''})
+			entities.append({'tag':'','entity':''})
 		finally:	
-			for a in mass:
+			for a in output_data:
 				NE = a.split(':')
-				pokemon.append({'tag':NE[0],'entity':NE[1]})
-			if (len(pokemon)==0):
-				pokemon.append({'tag':'','entity':''})			
-		return pokemon
+				entities.append({'tag':NE[0],'entity':NE[1]})
+			if (len(entities)==0):
+				entities.append({'tag':'','entity':''})			
+		return entities
 
 app = Flask(__name__)
 api = Api(app)
-api.add_resource(Pokemon, '/')
+api.add_resource(REST_server, '/')
 
 
 if __name__ == '__main__':

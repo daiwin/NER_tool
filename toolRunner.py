@@ -71,13 +71,12 @@ class toolrunner:
      
      def run_tools(self):
           print("ok run tools")
-     
-#          tomitaThread = threading.Thread(target=self.run_tomita)
+          tomitaThread = threading.Thread(target=self.run_tomita)
 #          rcoThread = threading.Thread(target=self.run_rco)
-#          texterraThread = threading.Thread(target=self.run_texterra)
-#          tomitaThread.start()
+          texterraThread = threading.Thread(target=self.run_texterra)
+          tomitaThread.start()
 #          rcoThread.start()
-#          texterraThread.start()
-#          tomitaThread.join()
+          texterraThread.start()
+          tomitaThread.join()
 #          rcoThread.join()
-#          texterraThread.join()
+          texterraThread.join()

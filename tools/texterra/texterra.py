@@ -50,7 +50,10 @@ def run():
      files = listdir("workdir/input_utf8")
      for file in files:
           if file[-4:] == ".txt":
-               extractNE(file)
+               try:
+                    extractNE(file)
+               except:
+                    print("error")
 
 
 

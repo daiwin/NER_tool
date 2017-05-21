@@ -13,10 +13,11 @@ class system:
              p = os.path.join(path, f)
              os.remove(p)
 
-     
      def run(self):
           prep = preprocessing.preprocessing()
           prep.run_pre()
+          
+          self.delete_files_from_tree("input")
           
           tr= toolRunner.toolrunner()
           tr.run_tools()
@@ -46,8 +47,6 @@ def main():
      
      postp = postprocessing.postprocessing()
      postp.run_post()
-     
-     
 
 if __name__ == '__main__':
       main()

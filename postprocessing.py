@@ -3,11 +3,9 @@ from os import listdir
 
 
 class postprocessing:
-     
      combined_results_path = "workdir/combined_results/"
      output_path = "output/"
-     
-     
+
      def run_post(self):
           print("ok run postprocessing")
            #открываем файлы и группируем
